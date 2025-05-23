@@ -1,0 +1,54 @@
+1. XML Tag Matching
+Regular expression: /<[^>]+>/
+Matches:
+- <opentag>
+- <closetag>
+- </closetag>
+- <with attribute="77">
+Does not match:
+- <an xml tag> (contains spaces)
+- <> (no content between tags)
+
+2. Pattern Matching /a.[bc]+/
+Matches:
+- abc
+- abbbbbbbb
+- azc
+- abcbcbcbc
+- azccbbbbcbccc
+Does not match:
+- ac (missing character between 'a' and 'c')
+
+3. Complex Pattern Matching /(very )+(fat )?(tall|ugly) man/
+Matches:
+- very fat man
+- very very fat ugly man
+- very very very tall man
+Does not match:
+- fat tall man (missing "very")
+
+4. Dot-Separated Pattern
+Regex: /^..\...\...\...$/
+Matches 4 segments separated by '.', each segment has 3 characters.
+Examples:
+- its.not.the.cat
+- 098.750.454.210
+- !.!.!.!.!.!.!.!
+
+5. Phone Number Patterns
+Regex: /^\(?\d{3}\)?[-. ]?\d{3}[-. ]?\d{4}$/
+Matches:
+- (123) 456 7899
+- (123).456.7899
+- (123)-456-7899
+- 123-456-7899
+- 123 456 7899
+- 1234567899
+
+6. Valid String with Separators
+Regex: /^[a-zA-Z0-9]+(?:[-_ ][a-zA-Z0-9]+)*$/
+Rules:
+- Only numbers, lowercase and uppercase characters
+- Allowed separators: hyphens, underscores, spaces
+- No two consecutive separators
+- No separators at the beginning or end
